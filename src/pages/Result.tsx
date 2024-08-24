@@ -7,7 +7,7 @@ const Result = ({ count }: { count: number }) => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (moles < 2) {
+    if (moles < 1) {
       return;
     }
 
