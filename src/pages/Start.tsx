@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/CountDown.css";
 
 import CountDown from "../components/CountDown";
 
@@ -15,7 +16,13 @@ const Start = () => {
     }
   }, [start]);
 
-  return <CountDown setStart={setStart} />;
+  return (
+    <>
+      <div className="Main">
+        <CountDown setStart={setStart} />
+      </div>
+    </>
+  );
 };
 
 export default Start;

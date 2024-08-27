@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../css/CountDown.css";
 
 const CountDown = ({
   setStart,
@@ -26,9 +27,13 @@ const CountDown = ({
 
   if (!countStart) {
     return (
-      <div>
-        <button onClick={onClick_Start}>開始</button>
-      </div>
+      <>
+        <div className="main">
+          <p className="start" onClick={onClick_Start}>
+            討伐
+          </p>
+        </div>
+      </>
     );
   }
 

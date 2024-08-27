@@ -26,14 +26,19 @@ const Game = ({
   useEffect(() => {
     if (life == 0) {
       setInterval(() => {
-        navigate("/result");
+        // navigate("/result");
       }, 1000);
     }
   }, [life]);
 
-  const clickEvent = (): void => {
-    setCount(count + 1);
-    setFlg(!flg);
+  const clickEvent = (e: React.MouseEvent<HTMLImageElement>): void => {
+    const target = e.target as HTMLElement;
+    console.log(target);
+
+    if (target.id === "robo") {
+      setCount(count + 1);
+      setFlg(!flg);
+    }
   };
 
   const onAnimationEnd = (): void => {
@@ -49,18 +54,26 @@ const Game = ({
           if (index == randomNumber) {
             return (
               <div key={index} className="box">
-                <div
+                <div className="border-radius"></div>
+                <img
+                  id="robo"
+                  src="/photo-output.png"
                   className="item animation"
                   onClick={clickEvent}
                   onAnimationEnd={onAnimationEnd}
-                ></div>
+                />
               </div>
             );
           }
 
           return (
             <div key={index} className="box">
-              <div className="item" onClick={clickEvent}></div>
+              <img
+                src="/photo-output.png"
+                className="item"
+                onClick={clickEvent}
+                onAnimationEnd={onAnimationEnd}
+              />
             </div>
           );
         })}

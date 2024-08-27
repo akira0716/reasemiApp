@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@900&display=swap");
+
+body {
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+button {
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.Main {
+  display: flex;
+  justify-content: center;
+
+  height: 800px;
+  background-image: url("/mogura.jpg");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: top;
+}
+
+.start {
+  margin-top: 150px;
+  font-size: 60px;
+  cursor: default;
+}
+
+.start:hover {
+  color: red;
+  cursor: pointer;
+}
