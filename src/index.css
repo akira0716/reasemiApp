@@ -103,3 +103,57 @@
   width: 100%;
   height: 500px;
 }
+
+/** Start.tsx（START） */
+.wanted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-select-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.level-select-btn {
+  padding: 10px;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.easy {
+  background-color: rgb(56, 180, 56);
+}
+
+.normal {
+  background-color: rgb(62, 56, 180);
+}
+
+.hard {
+  background-color: rgb(180, 56, 153);
+}
+
+.select {
+  font-size: 32px;
+  margin-block: 32px;
+}
+
+.level {
+  font-size: 60px;
+}
+
+.level-text {
+  margin-block: 24px;
+}
+/** Start.tsx（END） */
+
+/** 共通（START） */
+p,
+h2 {
+  margin: 0;
+}
+
+/** 共通（END） */

@@ -28,8 +28,8 @@ const CountDown = ({
   if (!countStart) {
     return (
       <>
-        <div className="main">
-          <p className="start" onClick={onClick_Start}>
+        <div className="start">
+          <p className="start2" onClick={onClick_Start}>
             討伐
           </p>
         </div>

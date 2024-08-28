@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Life from "../components/Life";
 
 const Game = ({
+  level,
   count,
   setCount,
 }: {
+  level: number;
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 }) => {
@@ -26,7 +28,7 @@ const Game = ({
   useEffect(() => {
     if (life == 0) {
       setInterval(() => {
-        // navigate("/result");
+        navigate("/result");
       }, 1000);
     }
   }, [life]);

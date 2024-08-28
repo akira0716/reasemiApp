@@ -7,15 +7,16 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [level, setLevel] = useState<number>(0);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Start />,
+      element: <Start setLevel={setLevel} />,
     },
     {
       path: "/game",
-      element: <Game count={count} setCount={setCount} />,
+      element: <Game level={level} count={count} setCount={setCount} />,
     },
     {
       path: "/result",
