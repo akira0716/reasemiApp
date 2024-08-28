@@ -4,7 +4,7 @@ const Life = ({ life }: { life: number }) => {
   for (let index = 1; index <= 3; index++) {
     if (index <= life) {
       elements.push(
-        <div>
+        <div key={index}>
           <svg
             width="43"
             height="40"
@@ -21,7 +21,7 @@ const Life = ({ life }: { life: number }) => {
       );
     } else {
       elements.push(
-        <div>
+        <div key={index}>
           <svg
             width="42"
             height="39"

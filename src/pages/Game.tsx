@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { getNumbers } from "../utils/random";
 import { useNavigate } from "react-router-dom";
 import Life from "../components/Life";
+import Robot from "../components/Robot";
 
 const Game = ({
   level,
@@ -12,74 +12,44 @@ const Game = ({
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const [randomNumber, setRandomNumber] = useState<number>(0);
   const [flg, setFlg] = useState<boolean>(false);
   const [life, setLife] = useState(3);
+  const [animate, setAnimate] = useState<boolean>(true);
 
   const navigate = useNavigate();
-
-  useEffect((): void => {
-    if (life != 0) {
-      const number: number = getNumbers(1, 0, 24)[0];
-      setRandomNumber(number);
-    }
-  }, [flg]);
 
   useEffect(() => {
     if (life == 0) {
       setInterval(() => {
-        navigate("/result");
+        // navigate("/result");
       }, 1000);
     }
   }, [life]);
 
   const clickEvent = (e: React.MouseEvent<HTMLImageElement>): void => {
-    const target = e.target as HTMLElement;
-    console.log(target);
-
-    if (target.id === "robo") {
-      setCount(count + 1);
-      setFlg(!flg);
-    }
+    setCount(count + 1);
+    setFlg(!flg);
   };
 
   const onAnimationEnd = (): void => {
     setLife(life - 1);
     setFlg(!flg);
+    setAnimate(false);
+    setTimeout(() => {
+      setAnimate(true); // アニメーションを再度有効化
+    }, 0);
   };
 
   return (
-    <div className="game-display">
+    <div id="game-display" className="game-display">
       <Life life={life} />
-      <div className="wrapper">
-        {[...Array(25)].map((_, index): JSX.Element => {
-          if (index == randomNumber) {
-            return (
-              <div key={index} className="box">
-                <div className="border-radius"></div>
-                <img
-                  id="robo"
-                  src="/photo-output.png"
-                  className="item animation"
-                  onClick={clickEvent}
-                  onAnimationEnd={onAnimationEnd}
-                />
-              </div>
-            );
-          }
-
-          return (
-            <div key={index} className="box">
-              <img
-                src="/photo-output.png"
-                className="item"
-                onClick={clickEvent}
-                onAnimationEnd={onAnimationEnd}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <Robot
+        animate={animate}
+        level={level}
+        flg={flg}
+        onClick={clickEvent}
+        onAnimationEnd={onAnimationEnd}
+      />
     </div>
   );
 };
